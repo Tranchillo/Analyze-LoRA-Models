@@ -1,4 +1,4 @@
-# Analyze LoRA Models
+# Analyze LoRA Models 
 
 ## Description
 With the `analyze_lora_models.py` script, you can automatically organize and group your LoRA models based on compatibility, reducing the time spent manually selecting the right models for each project.
@@ -41,43 +41,43 @@ To ensure compatibility, clone the repository into `C:/` on your computer.
 
    ```bash
    git clone https://github.com/Tranchillo/Analyze-LoRA-Models.git C:/Analyze-LoRA-Models
-
 This will create the Analyze-LoRA-Models folder in C:/, containing all necessary files.
 
 2. Create a Folder for LoRA Models
-Create a folder on your computer to place all the LoRA files you want to analyze. You can choose any location and name for the folder.
-
-Example: C:/analyze_lora_models/
+Create a folder on your computer to place all the LoRA files you want to analyze. You can choose any location and name for the folder. Example: C:/analyze_lora_models/
 
 3. Modify the Script (If Necessary)
-If you want to use a different folder, open the Python script and change the path in the lora_directory variable.
+If you want to use a different folder, open the Python script and change the path in the lora_directory variable. Example:
 
-Example:
-
-python
-Copia codice
 lora_directory = "C:/Users/username/Documents/LoraModels/"
+
 Make sure the path is correct, and that the folder contains only the .safetensors files for the LoRA models you want to analyze.
 
 4. Place LoRA Files in the Folder
 Add all the .safetensors LoRA files you want to analyze into the folder you just created.
 
-5. Run the Script
-Open a terminal (CMD or PowerShell on Windows), navigate to the C:/Analyze-LoRA-Models folder where the Python script is located, and run the following command:
+5. Install Dependencies
+Before running the script, you need to install the required Python libraries. To do this, download the requirements.txt file from this repository. This file lists all the necessary libraries for the script to work.
 
-bash
-Copia codice
-python analyze_lora_models.py
-6. View the Report
+To download the requirements.txt:
+
+Navigate to the repository on GitHub: Analyze-LoRA-Models GitHub.
+Locate the requirements.txt file in the repository.
+Click on the Raw button to view the raw content.
+Right-click and select "Save As" to download the file.
+Once you have the requirements.txt file, open a terminal and navigate to the repository directory (C:/Analyze-LoRA-Models), then install the dependencies by running:
+
+pip install -r requirements.txt
+
+7. View the Report
 The script will generate a report file called Lora_Analysis_Report.txt in the same folder as the script. This file will contain the groups of compatible LoRA models, sorted by the main parameter dimension.
 
-7. Customize the Folder (Optional)
+8. Customize the Folder (Optional)
 If you want the script to point to a different folder, change the path in the lora_directory variable within the code. Simply replace the path in quotes with the new folder path.
 
 Example of modified folder path in the script:
 
-python
-Copia codice
 lora_directory = "C:/Users/username/Documents/LoraModels/"
+
 Conclusion
 This script provides an efficient way to organize and reduce the overall size of LoRA files, making them easier to use in more complex workflows. By grouping compatible models, it helps avoid duplication and improves the management of models over time.
