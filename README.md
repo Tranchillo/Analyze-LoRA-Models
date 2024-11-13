@@ -47,34 +47,28 @@ To ensure compatibility, clone the repository into `C:/` on your computer and in
 
 This will create the Analyze-LoRA-Models folder in C:/ and install all necessary dependencies.
 
-### 2. Create a Folder for LoRA Models
-Create a folder on your computer to place all the LoRA files you want to analyze. You can choose any location and name for the folder.
-Example: C:/analyze_lora_models/
+### 2. Modify Script Directory (Optional)
+By default, the script will analyze LoRA models in the default directory. If you want to analyze models in a different location:
 
-### 3. Modify the Script (If Necessary)
-If you want to use a different folder, open the Python script and change the path in the lora_directory variable.
-Example:
-lora_directory = "C:/Users/username/Documents/LoraModels/"
-Make sure the path is correct, and that the folder contains only the .safetensors files for the LoRA models you want to analyze.
+1. Open the Python script and locate the `lora_directory` variable
+2. Change the path to your desired location. For example:
+   ```python
+   lora_directory = "C:/Users/username/Documents/LoraModels/"
+   ```
+Make sure the specified folder contains only the .safetensors files for the LoRA models you want to analyze.
 
-### 4. Place LoRA Files in the Folder
-Add all the .safetensors LoRA files you want to analyze into the folder you just created.
+### 3. Place LoRA Files
+Add all the .safetensors LoRA files you want to analyze into your chosen folder (either the default folder or your custom folder specified in step 2).
 
-### 5. Run the Script
+### 4. Run the Script
 Open a terminal (CMD or PowerShell on Windows), navigate to the C:/Analyze-LoRA-Models folder where the Python script is located, and run the following command:
 
    ```bash
    python analyze_lora_models.py
    ```
 
-### 6. View the Report
+### 5. View the Report
 The script will generate a report file called Lora_Analysis_Report.txt in the same folder as the script. This file will contain the groups of compatible LoRA models, sorted by the main parameter dimension.
-
-### 7. Customize the Folder (Optional)
-If you want the script to point to a different folder, change the path in the lora_directory variable within the code. Simply replace the path in quotes with the new folder path.
-
-Example of modified folder path in the script:
-lora_directory = "C:/Users/username/Documents/LoraModels/"
 
 ## Conclusion
 This script provides an efficient way to organize and reduce the overall size of LoRA files, making them easier to use in more complex workflows. By grouping compatible models, it helps avoid duplication and improves the management of models over time.
