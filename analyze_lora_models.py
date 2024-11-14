@@ -4,7 +4,7 @@ import safetensors.torch
 from datetime import datetime
 
 # Directory path containing LoRA models
-lora_directory = "C:/analyze_lora_models/"
+lora_directory = "C:/analyze_lora_models/put_here_your_lora/"
 
 def analyze_lora_models(directory):
     # Filter the .safetensors files in the directory
@@ -20,10 +20,6 @@ def analyze_lora_models(directory):
 
     # Open a log file for the report
     with open("Lora_Analysis_Report.txt", "w") as report_file:
-        # Include the author and creation date in the header
-        report_file.write(f"Author: Dany Tranchillo\n")
-        report_file.write(f"Report generated on: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
-        
         report_file.write("Grouping compatible LoRA models by parameter and dimension:\n\n")
         
         # Analyze each LoRA file
@@ -62,6 +58,12 @@ def analyze_lora_models(directory):
                 report_file.write(f"\nGroup (largest dimension {model_signature[1]}):\n")
                 for model, size_kb in models:
                     report_file.write(f" - {model} ({size_kb:.2f} KB)\n")
+
+        # Add the author and contributor info at the end of the report
+        report_file.write("\n\n---\n")
+        report_file.write(f"Author: Dany Tranchillo\n")
+        report_file.write(f"Contributors: barracuda415, reditor_13\n")
+        report_file.write(f"Report generated on: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
 
         print("Report generated as 'Lora_Analysis_Report.txt'")
 
