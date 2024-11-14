@@ -4,7 +4,7 @@ import safetensors.torch
 from datetime import datetime
 
 # Directory path containing LoRA models
-lora_directory = "C:/analyze_lora_models/put_here_your_lora/"
+lora_directory = "C:/Analyze-LoRA-Models/put_here_your_lora/"
 
 def analyze_lora_models(directory):
     # Filter the .safetensors files in the directory
