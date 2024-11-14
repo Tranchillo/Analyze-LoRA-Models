@@ -1,97 +1,80 @@
-# Analyze LoRA Models
+
+# Analyze-LoRA-Models
 
 ## Description
-The `analyze_lora_models.py` script allows you to automatically organize and group your LoRA models based on compatibility, reducing the time spent manually selecting the right models for each project.
 
-Thanks to this script, you'll be able to:
-- Speed up the search for LoRA models by organizing them into compatible groups, saving time in selection from hundreds of files
-- Quickly identify groups of compatible models through the generated report. Each group will be assigned a simple identifying name, helping you recognize them easily and merge LoRA models quickly, optimizing your workflow without having to concatenate multiple separate models
-- Create a more organized and faster workflow, allowing you to spend more time creating your works while saving disk space
-- No longer waste time searching through your LoRA models. With `analyze_lora_models.py`, simplify and speed up your creative process, reducing both disk space usage and search time!
+This script is designed to analyze LoRA models (.safetensors) located in a specified folder. The script loads the models, examines the parameter dimensions, and groups them based on compatibility. It then generates a text report with details about the compatible models, including their dimensions and file sizes.
 
-### Why I Created This Script
-As a beginner in this field, I often struggled to find tools that would generate the report I needed. Instead of spending time searching for such a tool, I decided to create it myself. I hope this tool can be useful for others in the creative community.
+## Prerequisites
 
-If you find this tool useful, feel free to share it and give it a thumbs up!
+- **Python 3.7+**
+- **PyTorch**: The version of PyTorch depends on whether or not you have an NVIDIA GPU. If you have a GPU with CUDA support, install the corresponding version of PyTorch; otherwise, install the CPU-only version.
 
-## Script Purpose
-This script was created to optimize and simplify the management of LoRA models used in workflows. Its main functions are:
-
-- Reducing the number of LoRA models to concatenate into a single workflow by identifying compatible models and allowing easier merging
-- Significantly reducing disk space usage by grouping LoRA models that share similar parameters, thus avoiding the need to store multiple copies of compatible models separately
-- Organizing LoRA models by creating groups based on parameter size and type, simplifying their selection and use in the future
-
-## What the Script Does
-The script explores a specified folder, examines each LoRA model within the directory, and determines which models are compatible with each other based on parameter dimensions (such as `lora_up.weight` and `lora_down.weight`).
-
-For each LoRA model found, the script:
-- Loads the model
-- Identifies the most significant parameter (the largest dimension of the main parameter)
-- Groups compatible LoRA models together, reducing the risk of duplication
-- Generates a `.txt` report listing compatible model groups so that the user can easily view which models can be merged together
-
-## How to Run the Script
+## Installation
 
 ### 1. Clone the Repository
-To ensure compatibility, clone the repository into `C:/` on your computer.
 
-1. Open a terminal (CMD or PowerShell on Windows)
-2. Execute the following command:
-   ```bash
-   git clone https://github.com/Tranchillo/Analyze-LoRA-Models.git C:/Analyze-LoRA-Models
-   ```
-   This will create the Analyze-LoRA-Models folder in C:/, containing all necessary files.
+First, clone the repository to your local machine:
 
-### 2. Create a Virtual Environment
-To avoid installing dependencies globally, create a virtual environment.
-
-In the terminal, navigate to the project directory:
 ```bash
-cd C:/Analyze-LoRA-Models
+git clone https://github.com/Tranchillo/Analyze-LoRA-Models.git
+cd Analyze-LoRA-Models
 ```
 
-Create a virtual environment:
-```bash
-python -m venv venv
-```
+### 2. Create and Activate a Virtual Environment
 
-Activate the virtual environment:
+Creating a virtual environment helps isolate dependencies for the project.
 
 On Windows:
 ```bash
-venv\Scripts\activate
+python -m venv venv
+.env\Scriptsctivate
 ```
 
-On macOS and Linux:
+On Mac/Linux:
 ```bash
+python3 -m venv venv
 source venv/bin/activate
 ```
 
 ### 3. Install Dependencies
-With the virtual environment activated, install the necessary dependencies:
+
+If you have an NVIDIA GPU with CUDA support, install the dependencies for CUDA:
 ```bash
-pip install -r requirements.txt
+pip install -r requirements_cuda.txt
 ```
 
-### 4. Place LoRA Files in the Provided Folder
-Add all the `.safetensors` LoRA files you want to analyze into the `put_here_your_lora` folder located in `C:/analyze_lora_models/`. This folder is already included in the repository.
+If you're using a CPU (or do not have an NVIDIA GPU with CUDA), install dependencies without CUDA support:
+```bash
+pip install -r requirements_cpu.txt
+```
+
+### 4. Add LoRA Models
+
+Move the LoRA `.safetensors` models you want to analyze into the `put_here_your_lora/` folder.
+
+Path: `C:/Analyze-LoRA-Models/put_here_your_lora/`
 
 ### 5. Run the Script
-Open a terminal (CMD or PowerShell on Windows), navigate to the `C:/Analyze-LoRA-Models` folder where the Python script is located, and run the following command:
+
+Execute the script to analyze the LoRA models:
 ```bash
 python analyze_lora_models.py
 ```
 
-### 6. View the Report
-The script will generate a report file called `Lora_Analysis_Report.txt` in the same folder as the script. This file will contain the groups of compatible LoRA models, sorted by the main parameter dimension.
+### 6. Check the Report
 
-### 7. Customize the Folder (Optional)
-If you want the script to point to a different folder, change the path in the `lora_directory` variable within the code. Simply replace the path in quotes with the new folder path.
+The script will generate a report called `Lora_Analysis_Report.txt` in the same directory. This report will contain details about the analyzed LoRA models, grouped by compatibility.
 
-Example of modified folder path in the script:
-```python
-lora_directory = "C:/Users/username/Documents/LoraModels/"
-```
+## Script Details
 
-## Conclusion
-This script provides an efficient way to organize and reduce the overall size of LoRA files, making them easier to use in more complex workflows. By grouping compatible models, it helps avoid duplication and improves the management of models over time.
+The script analyzes `.safetensors` LoRA models in the specified folder and:
+
+- Filters files with the `.safetensors` extension.
+- Analyzes each model to retrieve parameters and dimensions.
+- Groups compatible models by the same parameter dimension.
+- Generates a report containing compatible models, showing the file size of each model.
+
+## License
+
+This project is licensed under the GNU General Public License v3.0.
