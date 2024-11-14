@@ -1,0 +1,2 @@
+Place your .safetensors LoRA files in this folder for analysis.
+The script will scan all LoRA models in this directory and generate a compatibility report.
