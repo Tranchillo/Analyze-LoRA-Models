@@ -28,7 +28,7 @@ Creating a virtual environment helps isolate dependencies for the project.
 On Windows:
 ```bash
 python -m venv venv
-.env\Scriptsctivate
+.\venv\Scripts\activate
 ```
 
 On Mac/Linux:
