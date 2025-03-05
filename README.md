@@ -1,9 +1,8 @@
-
 # Analyze-LoRA-Models
 
 ## Description
 
-This script is designed to analyze LoRA models (.safetensors) located in a specified folder. The script loads the models, examines the parameter dimensions, and groups them based on compatibility. It then generates a text report with details about the compatible models, including their dimensions and file sizes.
+This script is designed to analyze LoRA models (`.safetensors`) located in a specified folder. The script loads the models, examines the parameter dimensions, and groups them based on compatibility. It then generates a text report with details about the compatible models, including their dimensions and file sizes.
 
 ## Prerequisites
 
@@ -41,6 +40,7 @@ source venv/bin/activate
 
 If you have an NVIDIA GPU with CUDA support, install the dependencies for CUDA:
 ```bash
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 pip install -r requirements_cuda.txt
 ```
 
@@ -53,7 +53,7 @@ pip install -r requirements_cpu.txt
 
 Move the LoRA `.safetensors` models you want to analyze into the `put_here_your_lora/` folder.
 
-Path: `C:/Analyze-LoRA-Models/put_here_your_lora/`
+Path: `put_here_your_lora/` (inside the script directory)
 
 ### 5. Run the Script
 
@@ -71,6 +71,7 @@ The script will generate a report called `Lora_Analysis_Report.txt` in the same 
 The script analyzes `.safetensors` LoRA models in the specified folder and:
 
 - Filters files with the `.safetensors` extension.
+- Verifies that the target directory exists.
 - Analyzes each model to retrieve parameters and dimensions.
 - Groups compatible models by the same parameter dimension.
 - Generates a report containing compatible models, showing the file size of each model.
