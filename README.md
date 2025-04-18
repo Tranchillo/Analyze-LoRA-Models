@@ -4,7 +4,7 @@
 
 This script is designed to analyze LoRA models (`.safetensors`) located in a specified folder. The script loads the models, examines the parameter dimensions, and groups them based on compatibility. It then generates a text report with details about the compatible models, including their dimensions and file sizes.
 
-![Lora_Analysis_Report.txt]([percorso/dell/immagine.png](https://github.com/Tranchillo/Analyze-LoRA-Models/blob/main/image.png))
+![Lora_Analysis_Report.txt](https://raw.githubusercontent.com/Tranchillo/Analyze-LoRA-Models/main/image.png)
 
 ## Prerequisites
 
